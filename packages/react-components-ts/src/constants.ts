@@ -54,6 +54,8 @@ export type VisualType =
   | 'transparent'
   | 'text';
 
+/** Main color variant */
+export type ColorType = 'danger'| 'info'| 'neutral'| 'success'| 'warning'
 /**z-index elevations */
 export type ElementElevation = 0 | 50 | 100 | 150 | 200 | 400 | 800;
 
@@ -126,10 +128,16 @@ export type IconSizeType =
   | string
   | IconSize;
 
+export type CSSHeightAndWidth = {
+  height: string | number;
+  width: string | number;
+}
+
 export type IconSetting = {
   size: IconSize;
   viewBox: string;
 };
+
 const tinyIcon: IconSetting = {
   size: IconSize.TINY,
   viewBox: '0 0 8 8',

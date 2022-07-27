@@ -3,15 +3,15 @@ import classNames from 'classnames';
 import Icon from '../icon';
 import { IconType } from '../icon/types';
 import Loading from '../loading';
-import { IconButtonVariant } from './types';
 import { TypeOfButton } from '../button/types';
 import { ButtonProps } from '../button/button';
+import { ColorType } from '../constants';
 
 export interface IconButtonProps extends Omit<ButtonProps, 'type' | 'size'> {
   /** React component / element to render. Useful in cases where a button is used for navigation, so that it can be rendered as an anchor tag with the same styling */
   as?: React.ElementType<any>,
   /** Main visual variant */
-  type?: IconButtonVariant,
+  type?: ColorType,
   /** Icon to be rendered instead of button */
   icon?: IconType | null,
   size?: 'medium',

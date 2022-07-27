@@ -1,2 +1,2 @@
-export type AlertType = 'info' | 'danger' | 'success' | 'warning';
-export type IconButtonVariant = 'neutral' | AlertType;
+
+export type AlertType = 'danger'| 'info'| 'success'| 'warning';
