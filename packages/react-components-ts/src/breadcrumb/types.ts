@@ -1,0 +1,1 @@
+export type BreadcrumbType = 'standard' | 'back'

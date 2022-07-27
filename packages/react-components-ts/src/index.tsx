@@ -7,6 +7,9 @@ export { default as Alert } from './alert';
 export { default as Alerts } from './alerts';
 export { default as Avatar } from './avatar';
 export { default as Badge } from './badge';
+export { default as Breadcrumb } from './breadcrumb';
+export { default as Link } from './link';
+export { default as Text } from './text';
 
 export const Thing = () => {
   return <div>the snozzberries taste like snozzberries</div>;
