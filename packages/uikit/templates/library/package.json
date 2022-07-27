@@ -2,7 +2,7 @@
   "name": "@puppet/my-library",
   "version": "0.1.0",
   "author": "Puppet, Inc.",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack",
@@ -11,8 +11,8 @@
     "test": "jest",
     "test:coverage": "jest --collectCoverage",
     "test:watch": "jest --watch",
-    "format": "eslint --fix '{src,jest}/**/*.{js,jsx,mjs}' && prettier --write {src,jest}/**/*.{graphql,json,css,md} .babelrc .prettierrc package.json README.md CONTRIBUTING.md",
-    "lint": "eslint '{src,jest}/**/*.{js,jsx,mjs}' jest.config.js postcss.config.js",
+    "format": "eslint --fix '{source,jest}/**/*.{js,jsx,ts,tsx,mjs}' && prettier --write {source,jest}/**/*.{graphql,json,css,md} .babelrc .prettierrc package.json README.md CONTRIBUTING.md",
+    "lint": "eslint '{source,jest}/**/*.{js,jsx,ts,tsx,mjs}' jest.config.js postcss.config.js",
     "prepare": "npm run build"
   },
   "dependencies": {
