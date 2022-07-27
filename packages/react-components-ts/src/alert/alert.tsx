@@ -114,7 +114,7 @@ class Alert extends React.Component<AlertProps> {
     }
 
     return (
-      <div className={classNames} {...rest}>
+      <div data-testid="rc-alert" className={classNames} {...rest}>
         <Icon className="rc-alert-primary-icon" type={typeIcon} size="medium" />
         <Text className="rc-alert-message" size="small">
           {children}

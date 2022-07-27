@@ -6,7 +6,6 @@ const sass = require('node-sass');
 
 module.exports = {
   rollup(config, options) {
-    console.log('config', config)
     config.plugins.push(
       postcss({
         preprocessor: (content, id) => new Promise((resolve, reject) => {

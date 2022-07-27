@@ -1,6 +1,6 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom/client';
 import { Thing } from '../.';
 
 const App = () => {
@@ -11,4 +11,11 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const container = document.getElementById("root");
+const root = ReactDOM.createRoot(container!);
+
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
