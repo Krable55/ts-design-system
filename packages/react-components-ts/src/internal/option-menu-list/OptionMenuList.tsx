@@ -9,17 +9,18 @@ import { KeyCode, KeyCodeType } from '../../constants';
 import OptionMenuListItem from './OptionMenuListItem';
 import { ListActions } from '../action-menu-list/ActionMenuList';
 
+export type Options = (
+  | IOptionMenuItem
+  | (Omit<IOptionMenuItem, 'value'> & {
+    value: IOptionMenuItem[];
+  })
+)[]
 export interface OptionMenuListProps extends ListActions {
   id: string;
   multiple?: boolean;
   autocomplete?: boolean;
   showCancel?: boolean;
-  options?: (
-    | IOptionMenuItem
-    | (Omit<IOptionMenuItem, 'value'> & {
-      value: IOptionMenuItem[];
-    })
-  )[];
+  options?: Options;
   selected?: string | number | (number | string)[];
   focusedIndex?: number | null;
   actionLabel?: string;

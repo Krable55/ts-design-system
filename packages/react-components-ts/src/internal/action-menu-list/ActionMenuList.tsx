@@ -16,7 +16,7 @@ export type Action = {
   disabled?: boolean;
 };
 
-export type ListActions = {
+export interface ListActions extends React.HTMLAttributes<HTMLUListElement> {
   onActionClick?: (
     id: string,
     event?: React.MouseEvent<HTMLButtonElement>

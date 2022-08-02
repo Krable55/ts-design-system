@@ -8,7 +8,7 @@ import icons, { Icons, IconType } from './types';
 const AVAILABLE_SIZES = Object.values(Sizes);
 const AVAILABLE_ICONS = Object.values(Icons);
 
-export interface IconProps {
+export interface IconProps extends Omit<React.SVGProps<SVGSVGElement>, 'onClick' | 'type'> {
   /** Choose your icon */
   type?: IconType | null;
   /** Optional choose your size */

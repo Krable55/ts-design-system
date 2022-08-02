@@ -85,6 +85,8 @@ export interface IOptionMenuItem {
   value: string | number,
   /** Select option label */
   label: React.ReactNode,
+  /** Selected option label */
+  selectedLabel?: React.ReactNode,
   /** Optional icon associated with this option */
   icon?: IconType;
   /** Optional custom icon associated with this option */
