@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import scrollIntoView from 'scroll-into-view-if-needed';
-import { KeyCode } from '../../constants';
+import { KeyCode, KeyCodeType } from '../../constants';
 import ActionMenuListItem from './ActionMenuListItem';
 import { isNil, focus, cancelEvent } from '../../helpers/statics';
 import { IconType } from '../../icon/types';
@@ -124,7 +124,7 @@ class ActionMenuList extends Component<
   onKeyDown(e?: React.KeyboardEvent<HTMLUListElement>) {
     const { onEscape } = this.props;
     if (!e) return;
-    switch (e.keyCode as KeyCode) {
+    switch (e.keyCode as KeyCodeType) {
       case KeyCode.UP: {
         this.onArrowUp();
         cancelEvent(e);
