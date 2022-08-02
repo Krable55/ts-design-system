@@ -8,6 +8,7 @@ export { default as Button } from './button';
 export { default as Icon } from './icon';
 export { default as Input } from './input';
 export { default as Link } from './link';
+export { default as Logo } from './logo';
 export { default as Loading } from './loading';
 export { default as Popover } from './popover';
 export { default as Portal } from './portal';
