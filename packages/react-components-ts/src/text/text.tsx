@@ -18,7 +18,7 @@ const propTypes = {
   style: PropTypes.shape({}),
 };
 
-export interface TextProps extends Omit<React.HTMLProps<HTMLSpanElement>, 'as' | 'size' | 'color'> {
+export interface TextProps extends Record<string, unknown> {
   /** Html element or react component to render */
   as?: React.ElementType<any>,
   /** Text Size */
@@ -26,7 +26,7 @@ export interface TextProps extends Omit<React.HTMLProps<HTMLSpanElement>, 'as' |
   /** Text color */
   color?: TextColor | null,
   /** Text body */
-  children: React.ReactNode | React.ReactNode[],
+  children?: React.ReactNode | React.ReactNode[],
   /** Optional additional classname. */
   className?: string,
   /** Optional inline style. Additionally, other event handlers and and props are propagated to the inner element for use as needed */

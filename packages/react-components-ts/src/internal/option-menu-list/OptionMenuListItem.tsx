@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
-
-import { Icons } from '../../library/icon/icons';
-import { Icon } from '../../library/icon';
+import { IconType } from '../../icon/types';
+import Icon from '../../icon';
 
 export enum OptionListItem {
   OPTION = 'option',
@@ -17,7 +16,7 @@ export interface OptionMenuListItemProps {
   focused?: boolean;
   selected?: boolean;
   /** Optional: choose an icon */
-  icon?: Icons;
+  icon?: IconType;
   /** Or pass in your own svg... */
   svg?: JSX.Element;
   onClick?: () => void;
@@ -75,9 +74,9 @@ const OptionMenuListItem = forwardRef<any, OptionMenuListItemProps>(
           isHeading
             ? 'rc-menu-list-group-heading'
             : {
-                'rc-menu-list-item-focused': focused,
-                'rc-menu-list-item-selected': selected,
-              }
+              'rc-menu-list-item-focused': focused,
+              'rc-menu-list-item-selected': selected,
+            }
         )}
       >
         {icon && <Icon className="rc-menu-list-item-icon" type={icon} />}

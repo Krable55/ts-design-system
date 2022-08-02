@@ -55,6 +55,7 @@ const Breadcrumb = ({ children, className, type, backLabel, color, size, ...prop
         <nav
           aria-label="Breadcrumb"
           className={classNames('rc-breadcrumb', className)}
+          color={color}
           {...props}
         >
           <ol>{crumbs}</ol>

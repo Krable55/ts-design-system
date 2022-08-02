@@ -103,10 +103,10 @@ const path = <T extends Record<string, any>>(
 };
 
 const getDropdownPosition = (
-  target: HTMLElement | undefined |  null,
+  target: HTMLElement | undefined | null,
   anchor: AnchorOrientationType | undefined | null,
   margin: number | undefined = 0
-) => {
+): undefined | React.CSSProperties => {
   if (
     typeof target === 'string' ||
     !target ||

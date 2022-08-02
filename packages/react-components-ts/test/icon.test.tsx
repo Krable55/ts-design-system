@@ -3,13 +3,14 @@ import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import React from 'react';
 
-import {Icon} from '../src';
+import { Icon } from '../src';
+import { IconType } from '../src/icon/types';
 
 describe('<Icon />', () => {
   // jsdom({ skipWindowCheck: true });
 
   it('should have className "rc-icon-pencil" if "pencil" is passed in as type', () => {
-    const props = { type: 'pencil' };
+    const props: { type: IconType } = { type: 'pencil' };
     const wrapper = shallow(<Icon {...props} />);
 
     expect(wrapper.hasClass('rc-icon-pencil')).to.equal(true);

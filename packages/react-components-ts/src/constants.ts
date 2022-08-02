@@ -12,19 +12,22 @@ export const END_KEY_CODE = 35 as const;
 export const HOME_KEY_CODE = 36 as const;
 export const SPACE_KEY_CODE = 32 as const;
 
-export enum KeyCode {
-  ENTER = 13,
-  BACK = 8,
-  TAB = 9,
-  ESC = 27,
-  LEFT = 37,
-  RIGHT = 39,
-  UP = 38,
-  DOWN = 40,
-  END = 35,
-  HOME = 36,
-  SPACE = 32,
-}
+export const KeyCode = {
+  ENTER: 13,
+  BACK: 8,
+  TAB: 9,
+  ESC: 27,
+  LEFT: 37,
+  RIGHT: 39,
+  UP: 38,
+  DOWN: 40,
+  END: 35,
+  HOME: 36,
+  SPACE: 32,
+} as const;
+
+export type KeyCodeType = typeof KeyCode[keyof typeof KeyCode];
+
 export const SIDEBAR_SUBSECTION_TRUNC_LENGTH = 6 as const;
 
 type EnumOrValue<T extends string | number | symbol> =
@@ -55,7 +58,7 @@ export type VisualType =
   | 'text';
 
 /** Main color variant */
-export type ColorType = 'danger'| 'info'| 'neutral'| 'success'| 'warning'
+export type ColorType = 'danger' | 'info' | 'neutral' | 'success' | 'warning'
 /**z-index elevations */
 export type ElementElevation = 0 | 50 | 100 | 150 | 200 | 400 | 800;
 

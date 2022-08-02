@@ -6,7 +6,7 @@ import { getDropdownPosition, focus } from '../helpers/statics';
 import withId from '../helpers/withId';
 import { Action } from '../internal/action-menu-list/ActionMenuList';
 import { AnchorOrientationType, VisualType, Weight } from '../constants';
-import { Icons } from '../icon/types';
+import { IconType } from '../icon/types';
 
 interface ActionMenuListProps {
   /**
@@ -26,7 +26,7 @@ interface ActionMenuListProps {
   /** Anchor orientation of the dropdown menu */
   anchor?: AnchorOrientationType,
   /** Optional icon to be rendered instead of / in addition to button text. If both an icon and text are present, the icon will be rendered before the text */
-  icon?: Icons | null,
+  icon?: IconType | null,
   /** Is the button disabled?  */
   disabled?: boolean,
   /** If true, button will render with a loading spinner */
@@ -40,8 +40,8 @@ interface ActionMenuListProps {
 };
 
 export interface ActionSelectState {
- open: boolean;
- menuStyle?: React.CSSProperties;
+  open: boolean;
+  menuStyle?: React.CSSProperties;
 }
 
 const defaultProps: ActionMenuListProps = {
@@ -108,7 +108,7 @@ class ActionSelect extends Component<ActionMenuListProps, ActionSelectState> {
   open() {
     const { anchor } = this.props;
     this.setState(
-      { open: true, menuStyle:  getDropdownPosition(this.button, anchor, 8) },
+      { open: true, menuStyle: getDropdownPosition(this.button, anchor, 8) },
       this.focusMenu,
     );
   }

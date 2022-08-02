@@ -4,12 +4,12 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 import { KeyCode } from '../../constants';
 import ActionMenuListItem from './ActionMenuListItem';
 import { isNil, focus, cancelEvent } from '../../helpers/statics';
-import { Icons } from '../../icon/types';
+import { IconType } from '../../icon/types';
 
 export type Action = {
   id: number | string;
   label: string;
-  icon?: Icons;
+  icon?: IconType;
   svg?: JSX.Element;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   as?: React.ComponentType<any>;
@@ -34,9 +34,9 @@ export interface ActionMenuListProps extends ListActions {
 const defaultProps: ActionMenuListProps = {
   id: '',
   actions: [],
-  onActionClick() {},
-  onEscape() {},
-  onBlur() {},
+  onActionClick() { },
+  onEscape() { },
+  onBlur() { },
   className: '',
   style: {},
 };

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Icons } from '../icon/types';
+import { IconType } from '../icon/types';
 
 /**
  * Design system available element elevations
@@ -81,9 +81,13 @@ export const deprecated = message => typeChecker => {
 };
 
 export interface IOptionMenuItem {
-  value?: string | number;
-  label: React.ReactNode;
-  icon?: Icons;
+  /** Select option value */
+  value: string | number,
+  /** Select option label */
+  label: React.ReactNode,
+  /** Optional icon associated with this option */
+  icon?: IconType;
+  /** Optional custom icon associated with this option */
   svg?: JSX.Element;
   disabled?: boolean;
 }

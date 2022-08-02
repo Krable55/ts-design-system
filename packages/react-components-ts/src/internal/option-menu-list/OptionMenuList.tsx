@@ -4,7 +4,7 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 import { isNil, focus, cancelEvent } from '../../helpers/statics';
 import { IOptionMenuItem } from '../../helpers/customPropTypes';
 
-import { KeyCode } from '../../constants';
+import { KeyCode, KeyCodeType } from '../../constants';
 
 import OptionMenuListItem from './OptionMenuListItem';
 import { ListActions } from '../action-menu-list/ActionMenuList';
@@ -14,14 +14,14 @@ export interface OptionMenuListProps extends ListActions {
   multiple?: boolean;
   autocomplete?: boolean;
   showCancel?: boolean;
-  options: (
+  options?: (
     | IOptionMenuItem
     | (Omit<IOptionMenuItem, 'value'> & {
-        value: IOptionMenuItem[];
-      })
+      value: IOptionMenuItem[];
+    })
   )[];
-  selected?: string | number | string[];
-  focusedIndex?: number;
+  selected?: string | number | (number | string)[];
+  focusedIndex?: number | null;
   actionLabel?: string;
   cancelLabel?: string;
   onChange?: (
@@ -43,16 +43,16 @@ const defaultProps: OptionMenuListProps = {
   multiple: false,
   autocomplete: false,
   showCancel: false,
-  onBlur() {},
+  onBlur() { },
   className: '',
   focusedIndex: 0,
-  onChange() {},
+  onChange() { },
   actionLabel: 'Apply',
   cancelLabel: 'Cancel',
-  onActionClick() {},
-  onEscape() {},
-  onFocusItem() {},
-  onClickItem() {},
+  onActionClick() { },
+  onEscape() { },
+  onFocusItem() { },
+  onClickItem() { },
   footer: null,
   style: {},
 };
@@ -66,9 +66,9 @@ const getFocusedId = (focusedIndex, id, options) =>
   typeof focusedIndex !== 'number' || focusedIndex >= options.length
     ? undefined
     : getOptionId(
-        id,
-        getFocusableOptions(options)[Math.max(focusedIndex, 0)].value
-      );
+      id,
+      getFocusableOptions(options)[Math.max(focusedIndex, 0)].value
+    );
 
 const getSelectionSet = (selection: string | number | (string | number)[]) =>
   new Set(
@@ -79,7 +79,7 @@ class OptionMenuList extends Component<
   OptionMenuListProps,
   OptionMenuListState
 > {
-  defaultProps: OptionMenuListProps = defaultProps;
+  public static defaultProps: OptionMenuListProps = defaultProps;
   optionRefs: any[] = [];
   private menu: HTMLUListElement | null = null;
   private button: HTMLButtonElement | null = null;
@@ -90,8 +90,8 @@ class OptionMenuList extends Component<
     const { options, focusedIndex } = this.props;
 
     this.state = {
-      focusedIndex: options.length ?? focusedIndex ?? null,
-    };
+      focusedIndex: options?.length ? focusedIndex ?? null : null,
+    }
 
     this.optionRefs = [];
 
@@ -110,7 +110,7 @@ class OptionMenuList extends Component<
     const { options, focusedIndex } = this.props;
 
     if (
-      options.length &&
+      options?.length &&
       focusedIndex !== prevProps.focusedIndex &&
       focusedIndex !== prevState.focusedIndex
     ) {
@@ -176,7 +176,7 @@ class OptionMenuList extends Component<
     const { onEscape, onClickItem, options } = this.props;
     const { focusedIndex } = this.state;
 
-    switch (e?.keyCode as KeyCode) {
+    switch (e?.keyCode as KeyCodeType) {
       case KeyCode.UP: {
         this.onArrowUp();
         cancelEvent(e);
@@ -220,7 +220,7 @@ class OptionMenuList extends Component<
   onKeyDownInAction(e?: React.KeyboardEvent<HTMLButtonElement>) {
     const { onEscape } = this.props;
 
-    switch (e?.keyCode as KeyCode) {
+    switch (e?.keyCode as KeyCodeType) {
       case KeyCode.ESC: {
         onEscape?.(e);
         cancelEvent(e);
@@ -337,7 +337,7 @@ class OptionMenuList extends Component<
       ...rest
     } = this.props;
 
-    if (!options.length) {
+    if (!options?.length) {
       return null;
     }
 

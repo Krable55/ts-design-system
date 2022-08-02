@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
-import { Icons } from '../../icon/types';
+import { IconType } from '../../icon/types';
 import Icon from '../../icon';
 
 interface ActionMenuListItemProps {
@@ -9,7 +9,7 @@ interface ActionMenuListItemProps {
   children: React.ReactNode | React.ReactNode[];
   focused: boolean;
   /** Optional: choose an icon */
-  icon?: Icons;
+  icon?: IconType;
   /** Or pass in your own svg... */
   svg?: JSX.Element;
   onMouseEnter: () => void;
@@ -19,7 +19,7 @@ interface ActionMenuListItemProps {
 }
 const defaultProps: Partial<ActionMenuListItemProps> = {
   as: undefined,
-  innerRef() {},
+  innerRef() { },
   disabled: false,
 };
 
