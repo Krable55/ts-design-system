@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { ColorType, Weight } from '../constants';
+import { ColorType, WeightType } from '../constants';
 
 const propTypes = {
   /** Type dictates badge coloring */
@@ -22,7 +22,7 @@ export interface BadgeProps extends Omit<React.HTMLProps<HTMLDivElement>, 'type'
   /** Type dictates badge coloring */
   type?: ColorType,
   /** Weight dictates the punchiness of badge coloring */
-  weight?: Weight,
+  weight?: WeightType,
   /** Setting pill to true fully rounds the borders */
   pill?: boolean,
   /** The content to render within the badge */

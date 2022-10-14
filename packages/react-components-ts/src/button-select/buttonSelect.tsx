@@ -8,7 +8,7 @@ import Icon from '../icon';
 import { getDropdownPosition, focus } from '../helpers/statics';
 import withId from '../helpers/withId';
 import { DropdownOption } from './types';
-import { AnchorOrientationType, VisualType, Weight } from '../constants';
+import { AnchorOrientationType, VariantType, WeightType } from '../constants';
 import { IconType } from '../icon/types';
 
 const propTypes = {
@@ -99,13 +99,13 @@ export interface ButtonSelectProps {
   /** Text rendered when no value is selected */
   placeholder?: string,
   /** Main visual variant */
-  type?: VisualType,
+  type?: VariantType,
   /** If true, a focused button will use an inner instead of outer outline */
   innerFocus?: boolean,
   /** Text to render as the action label in multiple mode */
   actionLabel?: string,
   /** Additional property used for connotative variants (such as danger) to choose between a strong and soft version */
-  weight?: Weight,
+  weight?: WeightType,
   /** Anchor orientation of the dropdown menu */
   anchor?: null | AnchorOrientationType,
   /** Optional icon to be rendered instead of / in addition to button text. If both an icon and text are present, the icon will be rendered before the text */

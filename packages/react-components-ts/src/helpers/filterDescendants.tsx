@@ -9,26 +9,34 @@ import React, { Children, cloneElement, isValidElement } from 'react';
  * @param {{children: Array|ReactNode, components: ReactElement|ReactElement[]}} parameters
  * @returns {{pluckedDescendants: Array, otherDescendants: Array}} descendants
  */
-export type PluckedDescendants = {
-  pluckedDescendants?: React.ReactNode[];
-  otherDescendants?: React.ReactNode[];
-};
-export interface IFilterDescendantsParameters {
-  children: React.ReactNode | React.ReactNode[];
-  components: React.ReactElement | React.ReactElement[];
-}
 type Decendant =
   | string
   | number
   | React.ReactElement
+  | React.FC<any>
+  | React.FunctionComponentElement<any>
   | React.ReactFragment
   | React.ReactPortal;
+
+export type PluckedDescendants = {
+  pluckedDescendants?: React.ReactNode[];
+  otherDescendants?: React.ReactNode[];
+};
+
+
+export interface IFilterDescendantsParameters {
+  children: React.ReactNode | React.ReactNode[];
+  components: Decendant | Decendant[];
+}
+
+
+
 const filterDescendants = ({
   children,
   components: component,
 }: IFilterDescendantsParameters): PluckedDescendants => {
-  let pluckedDescendants: Decendant[] = [];
-  const otherDescendants: Decendant[] = [];
+  let pluckedDescendants: React.ReactNode[] = [];
+  const otherDescendants: React.ReactNode[] = [];
   const components = Array.isArray(component) ? component : [component];
 
   Children.toArray(children).forEach(child => {

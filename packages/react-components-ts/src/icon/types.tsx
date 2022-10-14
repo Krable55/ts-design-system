@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sizes } from '../constants';
+import { Size } from '../constants';
 
 /** Alphabetical list of SVG icons
  *  Sizes are tiny, small, medium, large in that order.
@@ -158,7 +158,7 @@ export const Icons = {
 
 export type IconType = typeof Icons[keyof typeof Icons]
 export type IconSizes = {
-  [key in Sizes]?: JSX.Element;
+  [key in Size]?: JSX.Element;
 };
 
 const icons = {

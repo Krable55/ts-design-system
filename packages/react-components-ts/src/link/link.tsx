@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { TextColor, TextSize } from '../text/types';
-import { VisualType } from '../constants';
+import { TextColorType, TextSizeType } from '../text/types';
+import { VariantType } from '../constants';
 
 const propTypes = {
   /** Html element or react component to render */
@@ -25,9 +25,9 @@ export interface LinkProps extends Record<string, unknown> {
   /** Html element or react component to render */
   as?: React.ElementType<any> | string,
   /** Text color */
-  color?: TextColor,
+  color?: TextColorType,
   /** Text Size */
-  size?: TextSize,
+  size?: TextSizeType,
   /** Link text */
   children?: React.ReactNode,
   /** Optional additional classname. */
@@ -37,7 +37,7 @@ export interface LinkProps extends Record<string, unknown> {
   /** Optional disabled prop */
   disabled?: boolean,
   /** Type of Link */
-  type?: Extract<VisualType, 'primary' | 'secondary'>,
+  type?: Extract<VariantType, 'primary' | 'secondary'>,
 }
 
 const defaultProps: LinkProps = {

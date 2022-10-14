@@ -1,10 +1,11 @@
 import React, { CSSProperties } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import BreadcrumbSection from './breadcrumbSection';
+import BreadcrumbSection, { BreadcrumbSectionProps } from './breadcrumbSection';
 import Link from '../link';
 import Icon from '../icon';
-import { BreadcrumbType } from './types';
+import { BreadcrumbType, BreadcrumbVariant } from './types';
+import { TextColor, TextSize } from '../text/types';
 
 const propTypes = {
   /** The BreadcrumbSections to render */
@@ -21,7 +22,10 @@ const propTypes = {
 
 export interface BreadcrumbProps extends Omit<React.HTMLProps<HTMLElement>, 'type' | 'backLabel'> {
   /** The BreadcrumbSections to render */
-  children?: React.ReactNode | React.ReactNode[];
+  children?:
+  | React.ReactElement<BreadcrumbSectionProps>
+  | React.ReactNode
+  | Array<React.ReactElement<BreadcrumbSectionProps> | React.ReactNode>;
   /** Optional additional classnames */
   className?: string,
   /** Optional additional inline styles */
@@ -36,22 +40,31 @@ const defaultProps: BreadcrumbProps = {
   children: undefined,
   className: '',
   style: {},
-  type: 'standard',
+  type: BreadcrumbVariant.STANDARD,
   backLabel: 'Back',
 };
 
+
 const Breadcrumb = ({ children, className, type, backLabel, color, size, ...props }: BreadcrumbProps) => {
-  let crumbs = React.Children.toArray(children);
+  const crumbArray = React.Children.toArray(children)
+    .filter(c => !!c);
 
-  crumbs = crumbs.map((crumb, index) => {
-    const active = index === crumbs.length - 1;
-
-    return !React.isValidElement(crumb) ? crumb : React.cloneElement(crumb, { active });
+  const crumbs = crumbArray?.map((crumb, index) => {
+    // Check if child is a BreadcrumbSection (Unfourtunaelty, this is the only way I know how to check the types and its ugly);
+    if (React.isValidElement(crumb) &&
+      (crumb as React.ReactElement<any>).type === BreadcrumbSection) {
+      const active = index === crumbArray?.length - 1;
+      return React.cloneElement(crumb, {
+        ...crumb.props,
+        active
+      });
+    }
+    return crumb;
   });
 
   return (
     <>
-      {type === 'standard' ? (
+      {type === BreadcrumbVariant.STANDARD ? (
         <nav
           aria-label="Breadcrumb"
           className={classNames('rc-breadcrumb', className)}
@@ -67,8 +80,8 @@ const Breadcrumb = ({ children, className, type, backLabel, color, size, ...prop
         >
           <Icon type="chevron-left" aria-hidden="true" />
           <Link
-            color="medium"
-            size="tiny"
+            color={TextColor.MEDIUM}
+            size={TextSize.TINY}
             className="rc-breadcrumb-section"
             tabIndex={0}
             {...props}

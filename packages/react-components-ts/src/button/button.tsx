@@ -3,24 +3,24 @@ import classNames from 'classnames';
 import Icon from '../icon';
 import { IconType } from '../icon/types';
 import Loading from '../loading';
-import { IconSizeType, VisualType, Weight } from '../constants';
+import { Size, SizeType, VariantType, WeightType } from '../constants';
 import { TypeOfButton } from './types';
 
-export interface ButtonProps extends Omit<React.HTMLProps<HTMLButtonElement>, 'as'> {
+export interface ButtonProps extends Omit<React.HTMLProps<HTMLButtonElement>, 'as' | 'ref'> {
   /** React component / element to render. Useful in cases where a button is used for navigation, so that it can be rendered as an anchor tag with the same styling */
   as?: React.ElementType<any>,
   /** Prop to use for a `ref` passed to the inner element. */
   forwardRefAs?: string | number,
   /** Main visual variant */
-  type?: VisualType,
+  type?: VariantType,
   /** Additional property used for connotative variants (such as danger) to choose between a strong and soft version */
-  weight?: Weight,
+  weight?: WeightType,
   /** Optional icon to be rendered instead of / in addition to button text. If both an icon and text are present, the icon will be rendered before the text */
   icon?: IconType | null,
   /** Optional prop to change the size of a leading or trailing icons */
-  iconSize?: IconSizeType,
+  iconSize?: SizeType,
   /** Button text or other content */
-  children?: React.ReactNode | React.ReactNodeArray,
+  children?: React.ReactNode | React.ReactNode[],
   /** Optional trailing icon rendered after button text. For icon-only buttons, please use the 'icon' prop instead */
   trailingIcon?: IconType | null,
   /** Is the button disabled? */
@@ -120,7 +120,7 @@ const Button = forwardRef<HTMLElement, ButtonProps>(
       >
         {icon && (
           <Icon
-            size={type === 'text' ? 'small' : iconSize}
+            size={type === 'text' ? Size.SMALL : iconSize}
             type={icon}
             className="rc-button-icon-svg"
           />
@@ -128,7 +128,7 @@ const Button = forwardRef<HTMLElement, ButtonProps>(
         <span className="rc-button-content">{children}</span>
         {trailingIcon && (
           <Icon
-            size={type === 'text' ? 'small' : iconSize}
+            size={type === 'text' ? Size.SMALL : iconSize}
             type={trailingIcon}
             className="rc-button-icon-svg"
           />
@@ -145,6 +145,6 @@ const Button = forwardRef<HTMLElement, ButtonProps>(
  * of forwardRef(). Without this, a button's display name is 'ForwardRef(Button)'
  */
 Button.displayName = 'Button';
-(Button as any).defaultProps = defaultProps;
+Button.defaultProps = defaultProps;
 
 export default Button;

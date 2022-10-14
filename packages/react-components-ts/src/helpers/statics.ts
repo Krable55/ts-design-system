@@ -117,21 +117,21 @@ const getDropdownPosition = (
   const { width, height } = target.getBoundingClientRect();
 
   switch (anchor) {
-    case AnchorOrientation.BottomRight: {
+    case AnchorOrientation.BOTTOM_RIGHT: {
       return {
         top: height + margin,
         right: 0,
         minWidth: width,
       };
     }
-    case AnchorOrientation.TopRight: {
+    case AnchorOrientation.TOP_RIGHT: {
       return {
         bottom: height + margin,
         right: 0,
         minWidth: width,
       };
     }
-    case AnchorOrientation.TopLeft: {
+    case AnchorOrientation.TOP_LEFT: {
       return {
         bottom: height + margin,
         left: 0,
@@ -139,7 +139,7 @@ const getDropdownPosition = (
       };
     }
     default:
-    case AnchorOrientation.BottomLeft: {
+    case AnchorOrientation.BOTTOM_LEFT: {
       return {
         top: height + margin,
         left: 0,

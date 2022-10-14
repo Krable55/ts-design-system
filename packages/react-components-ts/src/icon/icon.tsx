@@ -1,11 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
-import { ICON_CONFIG, Sizes, SizeType } from '../constants';
+import { ICON_CONFIG, Size, SizeType } from '../constants';
 import icons, { Icons, IconType } from './types';
 
 // import './icon.scss';
 // These are defined here so they render in the styleguide props list
-const AVAILABLE_SIZES = Object.values(Sizes);
+const AVAILABLE_SIZES = Object.values(Size);
 const AVAILABLE_ICONS = Object.values(Icons);
 
 export interface IconProps extends Omit<React.SVGProps<SVGSVGElement>, 'onClick' | 'type'> {
@@ -29,7 +29,7 @@ const Icon = (props: IconProps) => {
   const {
     className = '',
     type,
-    size = Sizes.MEDIUM,
+    size = Size.MEDIUM,
     svg: propsSvg,
     viewBox: propsViewBox,
     style = {},
@@ -59,7 +59,7 @@ const Icon = (props: IconProps) => {
       // let's scale down the next largest svg,
       // or if unavailable, scale up the next smallest svg
 
-      const index = AVAILABLE_SIZES.indexOf(size as Sizes);
+      const index = AVAILABLE_SIZES.indexOf(size as Size);
       const largerSizes = AVAILABLE_SIZES.slice(0, index).reverse();
       const smallerSizes = AVAILABLE_SIZES.slice(index + 1);
 

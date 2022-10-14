@@ -12,32 +12,21 @@ export const END_KEY_CODE = 35 as const;
 export const HOME_KEY_CODE = 36 as const;
 export const SPACE_KEY_CODE = 32 as const;
 
-export const KeyCode = {
-  ENTER: 13,
-  BACK: 8,
-  TAB: 9,
-  ESC: 27,
-  LEFT: 37,
-  RIGHT: 39,
-  UP: 38,
-  DOWN: 40,
-  END: 35,
-  HOME: 36,
-  SPACE: 32,
-} as const;
+export enum KeyCode {
+  ENTER = 13,
+  BACK = 8,
+  TAB = 9,
+  ESC = 27,
+  LEFT = 37,
+  RIGHT = 39,
+  UP = 38,
+  DOWN = 40,
+  END = 35,
+  HOME = 36,
+  SPACE = 32,
+};
 
-export type KeyCodeType = typeof KeyCode[keyof typeof KeyCode];
-
-export const SIDEBAR_SUBSECTION_TRUNC_LENGTH = 6 as const;
-
-type EnumOrValue<T extends string | number | symbol> =
-  | T
-  | Record<T, string>[keyof Record<T, string>];
-
-/** Optional prop to change the size of fonts, icons, etc. */
-export type SizeType = EnumOrValue<Sizes>;
-
-export enum Sizes {
+export enum Size {
   GIANT = 'giant',
   HUGE = 'huge',
   LARGE = 'large',
@@ -45,32 +34,93 @@ export enum Sizes {
   SMALL = 'small',
   TINY = 'tiny',
 }
+
+export type KeyCodeType = typeof KeyCode[keyof typeof KeyCode];
+
+export const SIDEBAR_SUBSECTION_TRUNC_LENGTH = 6 as const;
+
+/** Optional prop to change the size of fonts, icons, etc. */
+export type SizeType =
+  | 'giant'
+  | 'huge'
+  | 'large'
+  | 'medium'
+  | 'small'
+  | 'tiny'
+  | Size;
+
 /** Additional property used for connotative variants (such as danger) to choose between a strong and soft version */
-export type Weight = 'bold' | 'subtle';
+export enum Weight {
+  BOLD = 'bold',
+  SUBTLE = 'subtle',
+}
+
+export type WeightType =
+  | 'bold'
+  | 'subtle'
+  | Weight;
 
 /** Main visual variant */
-export type VisualType =
+export enum Variant {
+  DANGER = 'danger',
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
+  TERTIARY = 'tertiary',
+  TEXT = 'text',
+  TRANSPARENT = 'transparent',
+}
+export type VariantType =
+  | 'danger'
   | 'primary'
   | 'secondary'
   | 'tertiary'
-  | 'danger'
+  | 'text'
   | 'transparent'
-  | 'text';
+  | Variant;
 
 /** Main color variant */
-export type ColorType = 'danger' | 'info' | 'neutral' | 'success' | 'warning'
+export enum Color {
+  DANGER = 'danger',
+  INFO = 'info',
+  NEUTRAL = 'neutral',
+  SUCCESS = 'success',
+  WARNING = 'warning',
+}
+export type ColorType =
+  | 'danger'
+  | 'info'
+  | 'neutral'
+  | 'success'
+  | 'warning'
+  | Color;
+
 /**z-index elevations */
 export type ElementElevation = 0 | 50 | 100 | 150 | 200 | 400 | 800;
 
 /** Anchor orientation for menus */
 export enum AnchorOrientation {
-  BottomRight = 'bottom right',
-  TopRight = 'top right',
-  TopLeft = 'top left',
-  BottomLeft = 'bottom left',
+  BOTTOM_LEFT = 'bottom left',
+  BOTTOM_RIGHT = 'bottom right',
+  TOP_LEFT = 'top left',
+  TOP_RIGHT = 'top right',
 }
-export type AnchorOrientationType = 'bottom right' | 'top right' | 'top left' | 'bottom left' | AnchorOrientation;
-export type FilterOperator = {
+export type AnchorOrientationType =
+  | 'bottom left'
+  | 'bottom right'
+  | 'top left'
+  | 'top right'
+  | AnchorOrientation;
+
+/** Alignment for text etc */
+export enum TextAlignment {
+  LEFT = 'left',
+  CENTER = 'center',
+  RIGHT = 'right',
+  JUSTIFY = 'justify',
+}
+export type AlignmentType = 'left' | 'center' | 'right' | 'justify' | TextAlignment;
+
+export interface FilterOperator {
   symbol: string;
   label: string;
   noValue?: boolean;
@@ -113,7 +163,7 @@ export const filterOperators: FilterOperator[] = [
 ];
 
 // Icons
-export enum IconSize {
+export enum IconPixelSize {
   TINY = '8px',
   SMALL = '12px',
   MEDIM = '16px',
@@ -121,15 +171,15 @@ export enum IconSize {
   HUGE = '32px',
   GIANT = '48px',
 }
-export type IconSizeType =
+export type IconPixelSizeType =
   | '8px'
   | '12px'
   | '16px'
   | '24px'
   | '32px'
   | '48px'
-  | string
-  | IconSize;
+  // | string
+  | IconPixelSize;
 
 export type CSSHeightAndWidth = {
   height: string | number;
@@ -137,41 +187,45 @@ export type CSSHeightAndWidth = {
 }
 
 export type IconSetting = {
-  size: IconSize;
+  size: IconPixelSize;
   viewBox: string;
 };
 
 const tinyIcon: IconSetting = {
-  size: IconSize.TINY,
+  size: IconPixelSize.TINY,
   viewBox: '0 0 8 8',
 };
 
 const smallIcon: IconSetting = {
-  size: IconSize.SMALL,
+  size: IconPixelSize.SMALL,
   viewBox: '0 0 12 12',
 };
 
 const mediumIcon: IconSetting = {
-  size: IconSize.MEDIM,
+  size: IconPixelSize.MEDIM,
   viewBox: '0 0 16 16',
 };
 
 const largeIcon: IconSetting = {
-  size: IconSize.LARGE,
+  size: IconPixelSize.LARGE,
   viewBox: '0 0 24 24',
 };
 
 const hugeIcon: IconSetting = {
-  size: IconSize.HUGE,
+  size: IconPixelSize.HUGE,
   viewBox: '0 0 32 32',
 };
 
 const giantIcon: IconSetting = {
-  size: IconSize.GIANT,
+  size: IconPixelSize.GIANT,
   viewBox: '0 0 48 48',
 };
 
-export const ICON_CONFIG = {
+export type IconConfig = {
+  [key in Size]: IconSetting;
+}
+
+export const ICON_CONFIG: IconConfig = {
   tiny: tinyIcon,
   small: smallIcon,
   medium: mediumIcon,
@@ -180,8 +234,14 @@ export const ICON_CONFIG = {
   giant: giantIcon,
 };
 
-export const STEPPER_STATES = {
-  active: 'active',
-  incomplete: 'incomplete',
-  complete: 'complete',
-};
+export enum StepperState {
+  ACTIVE = 'active',
+  COMPLETE = 'complete',
+  INCOMPLETE = 'incomplete',
+}
+
+export type StepperStateType =
+  | 'active'
+  | 'complete'
+  | 'incomplete'
+  | StepperState;

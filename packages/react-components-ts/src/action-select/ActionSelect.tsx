@@ -5,24 +5,23 @@ import ActionMenuList from '../internal/action-menu-list';
 import { getDropdownPosition, focus } from '../helpers/statics';
 import withId from '../helpers/withId';
 import { Action } from '../internal/action-menu-list/ActionMenuList';
-import { AnchorOrientationType, VisualType, Weight } from '../constants';
+import { AnchorOrientation, AnchorOrientationType, Variant, VariantType, Weight, WeightType } from '../constants';
 import { IconType } from '../icon/types';
-
 interface ActionMenuListProps {
   /**
    * This prop is automatically passed from the withID HOC
    * @ignore
    */
-  id: string,
+  id?: string,
   /** An Array of action objects */
   actions?: Action[],
   label?: string,
   /** Main visual variant */
-  type?: VisualType,
+  type?: VariantType,
   /** If true, a focused button will use an inner instead of outer outline */
   innerFocus?: boolean,
   /** Additional property used for connotative variants (such as danger) to choose between a strong and soft version */
-  weight?: Weight,
+  weight?: WeightType,
   /** Anchor orientation of the dropdown menu */
   anchor?: AnchorOrientationType,
   /** Optional icon to be rendered instead of / in addition to button text. If both an icon and text are present, the icon will be rendered before the text */
@@ -48,10 +47,10 @@ const defaultProps: ActionMenuListProps = {
   id: '',
   actions: [],
   label: '',
-  type: 'primary',
+  type: Variant.PRIMARY,
   innerFocus: false,
-  weight: 'bold',
-  anchor: 'bottom left',
+  weight: Weight.BOLD,
+  anchor: AnchorOrientation.BOTTOM_LEFT,
   icon: null,
   loading: false,
   disabled: false,
@@ -77,6 +76,8 @@ class ActionSelect extends Component<ActionMenuListProps, ActionSelectState> {
     this.closeAndFocusButton = this.closeAndFocusButton.bind(this);
     this.onBlur = this.onBlur.bind(this);
   }
+  static defaultProps = defaultProps;
+  static displayName = 'ActionSelect';
 
   private container: HTMLDivElement | null = null;
   private button: HTMLElement | null = null;
@@ -193,9 +194,7 @@ class ActionSelect extends Component<ActionMenuListProps, ActionSelectState> {
       </div>
     );
   }
-}
 
-(ActionSelect as any).defaultProps = defaultProps;
-(ActionSelect as any).displayName = 'ActionSelect';
+}
 
 export default withId(ActionSelect);

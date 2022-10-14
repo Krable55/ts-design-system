@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { TextColor, TextSize } from './types';
+import { TextColorType, TextSizeType } from './types';
 
 const propTypes = {
   /** Html element or react component to render */
@@ -22,9 +22,9 @@ export interface TextProps extends Record<string, unknown> {
   /** Html element or react component to render */
   as?: React.ElementType<any>,
   /** Text Size */
-  size?: TextSize,
+  size?: TextSizeType,
   /** Text color */
-  color?: TextColor | null,
+  color?: TextColorType | null,
   /** Text body */
   children?: React.ReactNode | React.ReactNode[],
   /** Optional additional classname. */
