@@ -1,12 +1,12 @@
 # WIP Puppet Design System (Typescript)
 
-## Whats the goal of this in this fork?
+## Whats the goal of this fork?
 - Puppet design system components & their tests are being converted from vanilla JS to use [Typescript](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html).
-- Flattening the library structure and combiining libraries to simplify deployments.
-- Adding treeshaking capabilities so you only get what you need from the library.
-- Updating library to use node 16.16.0.
-- Fixing security vulnerabilities from out of date packages flagged by dependabot
-- Using new bundling library [tsdx](https://tsdx.io/) along with [Rollup](https://rollupjs.org/guide/en/#overview) for faster bundling and configuration
+- To falatten the folder structure and combine libraries to simplify deployments.
+- To add treeshaking capabilities so you only get what you need from the library.
+- To update library to use node 16.16.0.
+- To fixsecurity vulnerabilities from out of date packages flagged by dependabot
+- To use a new bundling library [tsdx](https://tsdx.io/) along with [Rollup](https://rollupjs.org/guide/en/#overview) for faster bundling and configuration
 
 #### Suggestions are welcome! I'd like to get as much input and feedback as possible to build something that all of the teams are happy with. Feel free to ping me in slack if you want to contribute or if you have suggestions or concerns. 
 
