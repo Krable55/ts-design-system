@@ -10,7 +10,7 @@
 
 #### Suggestions are welcome! I'd like to get as much input and feedback as possible to build something that all of the teams are happy with. Feel free to ping me in slack if you want to contribute or if you have suggestions or concerns. 
 
-* Please note, I haven't updated the build instructions yet, but I will soon. Most of the new code is in the `packages/react-components-ts` if you want to check it out. 
+* Please note, I haven't updated the build instructions yet, but I will soon. Most of the new code is in `packages/react-components-ts` if you want to check it out. 
 
 ### OLD DOCS:
 
