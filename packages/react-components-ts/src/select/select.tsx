@@ -232,7 +232,7 @@ class Select extends Component<SelectProps, SelectState> {
           cancelEvent(e);
 
           if (filteredOptions?.[focusedIndex]) {
-            this.onValueChange(filteredOptions?.[focusedIndex].value);
+            this.onValueChange?.(filteredOptions?.[focusedIndex]?.value);
 
             this.closeAndFocusButton();
           }
@@ -284,14 +284,14 @@ class Select extends Component<SelectProps, SelectState> {
     }
 
     if (type === MULTISELECT) {
-      const selectedOptions = this.getOptions()?.filter(option => value.includes(option.value as string))
-        .map(option => option.selectedLabel || option.label);
+      const selectedOptions = this.getOptions()?.filter(option => value?.includes(option?.value as string))
+        .map(option => option?.selectedLabel || option?.label);
 
       return selectedOptions?.join(', ');
     }
 
     const selectedOption = this.getOptions()?.find(
-      option => option.value === value,
+      option => option?.value === value,
     );
 
     if (!selectedOption) {
@@ -310,7 +310,7 @@ class Select extends Component<SelectProps, SelectState> {
     // Otherwise, let's filter the presumably static list here
     if (value && type === AUTOCOMPLETE && !onFilter) {
       opts = opts?.filter(
-        option => typeof option.value === 'string' && typeof value === 'string' && option.value.toLowerCase().indexOf(value.toLowerCase()) > -1,
+        option => typeof option?.value === 'string' && typeof value === 'string' && option?.value.toLowerCase().indexOf(value.toLowerCase()) > -1,
       );
     }
 

@@ -3,9 +3,10 @@
   "include": [
     "src",
     "types",
-    "test"
+    // "test"
   ],
   "compilerOptions": {
+    "rootDir": "./src",
     "module": "esnext",
     "lib": [
       "dom",

@@ -76,18 +76,18 @@ const Copy = <T extends unknown>({
       // value = child.props?.children ? child.props.children : value;
       const secondDecendantValue = (child as any)?.props?.children
       if (typeof secondDecendantValue === 'string') {
-        copyValue = secondDecendantValue;
+        copyValue = secondDecendantValue as NodesOrString<T> | undefined;
       }
 
       const firstDecendantValue = (child as any)?.props?.value;
       if (typeof firstDecendantValue === 'string') {
-        copyValue = firstDecendantValue
+        copyValue = firstDecendantValue as NodesOrString<T> | undefined
       };
     } catch (e) {
       // If `children` is not a single React element, a string node is a valid value
       const [directDecendant] = React.Children.toArray(children);
       if (typeof directDecendant === 'string') {
-        copyValue = directDecendant;
+        copyValue = directDecendant as NodesOrString<T> | undefined;
       }
     }
   }

@@ -5,14 +5,26 @@ export { default as Avatar } from './avatar';
 export { default as Badge } from './badge';
 export { default as Breadcrumb } from './breadcrumb';
 export { default as Button } from './button';
+export { default as ButtonSelect } from './button-select';
+export { default as Card } from './card';
+export { default as Checkbox } from './checkbox';
+export { default as Code } from './code';
+export { default as ConfirmationModal } from './confirmation-modal';
+export { default as Copy } from './copy';
+export { default as Heading } from './heading';
+export { default as Colors } from './colors';
 export { default as Icon } from './icon';
 export { default as Input } from './input';
 export { default as Link } from './link';
 export { default as Logo } from './logo';
+export { default as Modal } from './modal';
 export { default as Loading } from './loading';
 export { default as Popover } from './popover';
 export { default as Portal } from './portal';
 export { default as RadioButton } from './radiobutton';
 export { default as Select } from './select';
 export { default as Text } from './text';
+export { default as Toolbar } from './toolbar';
+export * as constants from './constants';
+
 

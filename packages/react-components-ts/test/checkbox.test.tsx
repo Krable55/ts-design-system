@@ -3,7 +3,7 @@ import { mount, shallow } from 'enzyme';
 import { expect } from 'chai';
 import React from 'react';
 
-import { Checkbox } from '../src/checkbox';
+import Checkbox from '../src/checkbox';
 
 describe('<Checkbox />', () => {
 
