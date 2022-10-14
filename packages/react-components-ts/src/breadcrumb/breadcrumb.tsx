@@ -4,8 +4,7 @@ import classNames from 'classnames';
 import BreadcrumbSection, { BreadcrumbSectionProps } from './breadcrumbSection';
 import Link from '../link';
 import Icon from '../icon';
-import { BreadcrumbType, BreadcrumbVariant } from './types';
-import { TextColor, TextSize } from '../text/types';
+import { TextColor, TextSize, BreadcrumbType, BreadcrumbVariant } from '../constants';
 
 const propTypes = {
   /** The BreadcrumbSections to render */

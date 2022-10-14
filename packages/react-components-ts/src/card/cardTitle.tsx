@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Heading from '../heading';
 import { HeadingProps } from '../heading/heading';
-import { Headings } from '../heading/types';
+import { Headings } from '../constants';
 
 const propTypes = {
   className: PropTypes.string,

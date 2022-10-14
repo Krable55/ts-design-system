@@ -1,85 +1,12 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import Button from '../button';
 import OptionMenuList from '../internal/option-menu-list';
-import { anchorOrientation } from '../helpers/customPropTypes';
-import Icon from '../icon';
 import { getDropdownPosition, focus } from '../helpers/statics';
 import withId from '../helpers/withId';
 import { DropdownOption } from './types';
-import { AnchorOrientationType, VariantType, WeightType } from '../constants';
+import { AnchorOrientation, AnchorOrientationType, Variant, VariantType, Weight, WeightType } from '../constants';
 import { IconType } from '../icon/types';
-
-const propTypes = {
-  /**
-   * This prop is automatically passed from the withID HOC
-   * @ignore
-   */
-  id: PropTypes.string.isRequired,
-  /** Are multiple selections allowed? */
-  multiple: PropTypes.bool,
-  /** An array of select options */
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      /** Select option value */
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        .isRequired,
-      /** Select option label */
-      label: PropTypes.string.isRequired,
-      /** Optional alternate label rendered in the main button element if the option is selected. */
-      selectedLabel: PropTypes.string,
-      /** Optional icon associated with this option */
-      icon: PropTypes.oneOf(Icon.AVAILABLE_ICONS),
-      /** Optional custom icon associated with this option */
-      svg: PropTypes.element,
-    }),
-  ),
-  /** Currently selected value or values */
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.arrayOf(
-      PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    ),
-  ]),
-  /** Value change handler. This function gets passed the new value as the only parameter. */
-  onChange: PropTypes.func,
-  /** When in multiple mode, should the selected items be applied immediately? */
-  applyImmediately: PropTypes.bool, // eslint-disable-line
-  /** Text rendered when no value is selected */
-  placeholder: PropTypes.string,
-  /** Main visual variant */
-  type: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'tertiary',
-    'danger',
-    'transparent',
-    'text',
-  ]),
-  /** If true, a focused button will use an inner instead of outer outline */
-  innerFocus: PropTypes.bool,
-  /** Text to render as the action label in multiple mode */
-  actionLabel: PropTypes.string, //eslint-disable-line
-  /** Additional property used for connotative variants (such as danger) to choose between a strong and soft version */
-  weight: PropTypes.oneOf(['bold', 'subtle']),
-  /** Anchor orientation of the dropdown menu */
-  anchor: anchorOrientation,
-  /** Optional icon to be rendered instead of / in addition to button text. If both an icon and text are present, the icon will be rendered before the text */
-  icon: PropTypes.oneOf(Icon.AVAILABLE_ICONS),
-  /** Is the button disabled?  */
-  disabled: PropTypes.bool,
-  /** If true, button will render with a loading spinner */
-  loading: PropTypes.bool,
-  /** Optional additional className passed to the outer element */
-  className: PropTypes.string,
-  /** Optional inline width passed to the button element */
-  width: PropTypes.string,
-  /** Optional inline style passed to the outer element */
-  style: PropTypes.shape({}),
-};
-
 export interface ButtonSelectProps {
   /**
   * This prop is automatically passed from the withID HOC
@@ -134,11 +61,11 @@ const defaultProps: ButtonSelectProps = {
   value: null,
   onChange() { },
   placeholder: 'Select',
-  type: 'primary',
+  type: Variant.PRIMARY,
   innerFocus: false,
   actionLabel: undefined,
-  weight: 'bold',
-  anchor: 'bottom left',
+  weight: Weight.BOLD,
+  anchor: AnchorOrientation.BOTTOM_LEFT,
   icon: null,
   loading: false,
   disabled: false,
@@ -179,6 +106,7 @@ class ButtonSelect extends Component<ButtonSelectProps, ButtonSeletcState> {
     this.getButtonLabel = this.getButtonLabel.bind(this);
   }
 
+  static defaultProps = defaultProps;
   private container: HTMLDivElement | null = null;
   private button: HTMLElement | null = null;
   private menu: OptionMenuList | null = null;
@@ -367,8 +295,5 @@ class ButtonSelect extends Component<ButtonSelectProps, ButtonSeletcState> {
     );
   }
 }
-
-(ButtonSelect as any).propTypes = propTypes;
-(ButtonSelect as any).defaultProps = defaultProps;
 
 export default withId(ButtonSelect);

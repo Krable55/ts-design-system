@@ -3,8 +3,7 @@ import classNames from 'classnames';
 import Icon from '../icon';
 import { IconType } from '../icon/types';
 import Loading from '../loading';
-import { Size, SizeType, VariantType, WeightType } from '../constants';
-import { TypeOfButton } from './types';
+import { ButtonType, ButtonVariant, Size, SizeType, Variant, VariantType, Weight, WeightType } from '../constants';
 
 export interface ButtonProps extends Omit<React.HTMLProps<HTMLButtonElement>, 'as' | 'ref'> {
   /** React component / element to render. Useful in cases where a button is used for navigation, so that it can be rendered as an anchor tag with the same styling */
@@ -30,7 +29,7 @@ export interface ButtonProps extends Omit<React.HTMLProps<HTMLButtonElement>, 'a
   /** If true, a focused button will use an inner instead of outer outline */
   innerFocus?: boolean,
   /** Optional html button type override */
-  buttonType?: TypeOfButton,
+  buttonType?: ButtonType,
   /** Optional additional className. Additionally, all other props are propagated directly to the inner element */
   className?: string,
   /** Optional inline styled passed to the button element */
@@ -38,13 +37,13 @@ export interface ButtonProps extends Omit<React.HTMLProps<HTMLButtonElement>, 'a
 };
 
 const defaultProps: ButtonProps = {
-  as: 'button',
+  as: ButtonVariant.BUTTON,
   forwardRefAs: 'ref',
-  type: 'primary',
-  weight: 'bold',
+  type: Variant.PRIMARY,
+  weight: Weight.BOLD,
   children: null,
   icon: null,
-  iconSize: 'medium',
+  iconSize: Size.MEDIUM,
   trailingIcon: null,
   loading: false,
   innerFocus: false,
@@ -63,8 +62,8 @@ const assignTypeDefault = (buttonType, Element) => {
     return buttonType;
   }
 
-  if (Element === 'button') {
-    return 'button';
+  if (Element === ButtonVariant.BUTTON) {
+    return ButtonVariant.BUTTON;
   }
 
   return null;
@@ -113,14 +112,14 @@ const Button = forwardRef<HTMLElement, ButtonProps>(
           className,
         )}
         disabled={loading || disabled}
-        aria-disabled={Element === 'button' ? undefined : loading || disabled}
+        aria-disabled={Element === ButtonVariant.BUTTON ? undefined : loading || disabled}
         aria-label={children || icon || trailingIcon}
         {...withForwardRef}
         {...rest}
       >
         {icon && (
           <Icon
-            size={type === 'text' ? Size.SMALL : iconSize}
+            size={type === Variant.TEXT ? Size.SMALL : iconSize}
             type={icon}
             className="rc-button-icon-svg"
           />
@@ -128,7 +127,7 @@ const Button = forwardRef<HTMLElement, ButtonProps>(
         <span className="rc-button-content">{children}</span>
         {trailingIcon && (
           <Icon
-            size={type === 'text' ? Size.SMALL : iconSize}
+            size={type === Variant.TEXT ? Size.SMALL : iconSize}
             type={trailingIcon}
             className="rc-button-icon-svg"
           />

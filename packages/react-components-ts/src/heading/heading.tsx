@@ -1,8 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { TextColorType } from '../text/types';
-import { HeadingType, Headings } from './types';
+import { HeadingType, Headings, TextColorType } from '../constants';
 
 const propTypes = {
   children: PropTypes.node.isRequired,

@@ -3,9 +3,8 @@ import classNames from 'classnames';
 import Icon from '../icon';
 import { IconType } from '../icon/types';
 import Loading from '../loading';
-import { TypeOfButton } from '../button/types';
 import { ButtonProps } from '../button/button';
-import { ColorType } from '../constants';
+import { ColorType, ButtonType, Size, SizeType } from '../constants';
 
 export interface IconButtonProps extends Omit<ButtonProps, 'type' | 'size'> {
   /** React component / element to render. Useful in cases where a button is used for navigation, so that it can be rendered as an anchor tag with the same styling */
@@ -14,13 +13,13 @@ export interface IconButtonProps extends Omit<ButtonProps, 'type' | 'size'> {
   type?: ColorType,
   /** Icon to be rendered instead of button */
   icon?: IconType | null,
-  size?: 'medium',
+  size?: Extract<SizeType, 'medium' | Size.MEDIUM>,
   /** Is the button disabled?  */
   disabled?: boolean,
   /** If true, button will render with a loading spinner */
   loading?: boolean,
   /** Optional html button type override */
-  buttonType?: TypeOfButton,
+  buttonType?: ButtonType,
   /** Optional additional className. */
   className?: string,
   /** Optional additional inline styles. */
@@ -31,7 +30,7 @@ const defaultProps: IconButtonProps = {
   as: 'button',
   type: 'info',
   icon: null,
-  size: 'medium',
+  size: Size.MEDIUM,
   disabled: false,
   loading: false,
   buttonType: undefined,

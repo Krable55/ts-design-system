@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import React from 'react';
 
 import Heading from '../src/heading';
-import { HeadingType } from '../src/heading/types';
+import { HeadingType } from '../src/constants';
 
 describe('<Heading />', () => {
 

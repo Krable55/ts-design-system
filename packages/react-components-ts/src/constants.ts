@@ -35,6 +35,35 @@ export enum Size {
   TINY = 'tiny',
 }
 
+export enum Alert {
+  DANGER = 'danger',
+  INFO = 'info',
+  SUCCESS = 'success',
+  WARNING = 'warning',
+}
+
+export type AlertType =
+  | 'danger'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | Alert;
+
+export enum BreadcrumbVariant {
+  STANDARD = 'standard',
+  BACK = 'back'
+}
+
+export type BreadcrumbType = 'standard' | 'back' | BreadcrumbVariant;
+
+export enum ButtonVariant {
+  BUTTON = 'button',
+  SUBMIT = 'submit',
+  RESET = 'reset'
+};
+
+export type ButtonType = 'button' | 'submit' | 'reset' | ButtonVariant;
+
 export type KeyCodeType = typeof KeyCode[keyof typeof KeyCode];
 
 export const SIDEBAR_SUBSECTION_TRUNC_LENGTH = 6 as const;
@@ -162,6 +191,24 @@ export const filterOperators: FilterOperator[] = [
   },
 ];
 
+export enum Headings {
+  H1 = 'h1',
+  H2 = 'h2',
+  H3 = 'h3',
+  H4 = 'h4',
+  H5 = 'h5',
+  H6 = 'h6',
+}
+
+export type HeadingType =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | Headings;
+
 // Icons
 export enum IconPixelSize {
   TINY = '8px',
@@ -245,3 +292,30 @@ export type StepperStateType =
   | 'complete'
   | 'incomplete'
   | StepperState;
+
+export enum TextSize {
+  MEDIUM = 'medium',
+  SMALL = 'small',
+  TINY = 'tiny',
+}
+export type TextSizeType =
+  | 'tiny'
+  | 'small'
+  | 'medium'
+  | TextSize;
+
+export enum TextColor {
+  DANGER = 'danger',
+  MEDIUM = 'medium',
+  SUBTLE = 'subtle',
+  SUCCESS = 'success',
+  WARNING = 'warning',
+}
+
+export type TextColorType =
+  | 'danger'
+  | 'medium'
+  | 'subtle'
+  | 'success'
+  | 'warning'
+  | TextColor;

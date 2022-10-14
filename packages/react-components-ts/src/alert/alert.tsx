@@ -9,7 +9,7 @@ import AlertMessage from './alertMessage';
 import AlertActions from './alertActions';
 import AlertError from './alertError';
 import { Icons } from '../icon/types';
-import { AlertType } from './types';
+import { AlertType } from '../constants';
 
 const propTypes = {
   /** Main content */

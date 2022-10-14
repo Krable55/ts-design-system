@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { TextColorType, TextSizeType } from './types';
+import { TextColorType, TextSizeType } from '../constants';
 
 const propTypes = {
   /** Html element or react component to render */

@@ -93,15 +93,4 @@ export interface IOptionMenuItem {
   svg?: JSX.Element;
   disabled?: boolean;
 }
-// export const optionMenuItemShape = {
-//   /** Value of the option */
-//   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-//   /** The label to show */
-//   label: PropTypes.node.isRequired,
-//   /** Optional icon associated with this option */
-//   icon: PropTypes.oneOf(Icon.AVAILABLE_ICONS),
-//   /** Optional custom icon associated with this option */
-//   svg: PropTypes.element,
-//   /** Whether this option is disabled */
-//   disabled: PropTypes.bool,
-// };
+
