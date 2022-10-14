@@ -1,4 +1,18 @@
-# Puppet Design System
+# WIP Puppet Design System (Typescript)
+
+## Whats the goal of this fork?
+- To convert the Puppet design system components & their tests from vanilla JS to [Typescript](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html).
+- To falatten the folder structure and combine libraries to simplify deployments.
+- To add treeshaking capabilities so you only get what you need from the library.
+- To update library to use node 16.16.0.
+- To fix security vulnerabilities from out of date packages flagged by dependabot
+- To use a new bundling library [tsdx](https://tsdx.io/) along with [Rollup](https://rollupjs.org/guide/en/#overview) for faster bundling and configuration
+
+#### Suggestions are welcome! I'd like to get as much input and feedback as possible to build something that all of the teams are happy with. Feel free to ping me in slack if you want to contribute or if you have suggestions or concerns. 
+
+* Please note, I haven't updated the build instructions yet, but I will soon. Most of the new code is in `packages/react-components-ts` ([link](https://github.com/Krable55/ts-design-system/tree/main/packages/react-components-ts)) if you want to check it out. 
+
+### OLD DOCS:
 
 The Puppet Design System represents the behaviors, components, principles and visual presentation we share. It is based on our objective to provide consistency, efficiency, and quality experiences to our customers. With it, we scale design across departments, products, platforms, and time zones.
 
