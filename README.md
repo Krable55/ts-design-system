@@ -1,6 +1,7 @@
 # WIP Puppet Design System (Typescript)
 
 ## Whats the goal of this fork?
+- To show some possibilities & proof of concepts for updating the component library.
 - To convert the Puppet design system components & their tests from vanilla JS to [Typescript](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html).
 - To flatten the folder structure and combine libraries to simplify deployments.
 - To add treeshaking capabilities so you only get what you need from the library.
