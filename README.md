@@ -2,7 +2,7 @@
 
 ## Whats the goal of this fork?
 - To convert the Puppet design system components & their tests from vanilla JS to [Typescript](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html).
-- To falatten the folder structure and combine libraries to simplify deployments.
+- To flatten the folder structure and combine libraries to simplify deployments.
 - To add treeshaking capabilities so you only get what you need from the library.
 - To update library to use node 16.16.0.
 - To fix security vulnerabilities from out of date packages flagged by dependabot
